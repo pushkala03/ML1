@@ -1,0 +1,27 @@
+import csv 
+numofattr = 6
+a = [] 
+print("\n The Given Training Data Set \n")
+
+
+with open('/content/sample_data/Find S dataset - Find S dataset.csv', 'r') as f:
+    reader = csv.reader(f)
+    for row in reader:
+        a.append (row)
+        print(row)
+
+h0 = ['0'] * numofattr
+print(h0)
+
+for j in range(0,numofattr):
+    h0[j] = a[0][j] 
+    
+for i in range(0,len(a)):
+    if a[i][numofattr]=='Yes':
+        for j in range(0,numofattr):
+            if a[i][j]!=h0[j]:
+                h0[j]='?'
+            else :
+                h0[j]= a[i][j] 
+    
+print(h0)
